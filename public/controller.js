@@ -3,8 +3,6 @@
 var flashcardApp = angular.module("flashcardApp", [])
 
 flashcardApp.controller("flashcardController", function($scope) {
-  $scope.hello ='42'
-
   $scope.initData = [
     {"Q" : "EMMET: Numbering?", "A": "# or is it $?"},
     {"Q" : "MAC: Three finger salute?", "A" : "Option Cmd Esc"},

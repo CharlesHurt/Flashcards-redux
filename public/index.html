@@ -14,12 +14,12 @@
 <body ng-app='flashcardApp' ng-controller='flashcardController'>
   <div id="idPrevQuestion" class='cQuestion'>Previous question</div>
   <div id="idNextQuestion" class='cQuestion'>Next question</div>
-  <div name="" id="idQuestions" class='cQuestionBlock'>This is a question</div>
-  <div name="" id="idAnswers" class='cAnswerBlock'>This is an answer</div>
+  <div id="idQuestions" class='cQuestionBlock'>This is a question</div>
+  <div id="idAnswers" class='cAnswerBlock'>This is an answer</div>
   <img src="CardFront.jpg" alt="" class='cCard cFlashCard cCardFront'>
   <img src="CardBack.jpg" alt="" class='cCard cFlashCard cCardBack'>
 
-<div  ng-hide='true'>
+<div ng-hide='true'>
   List of questions on the left
   Need a hint sweetalert Using autoclose timer
   Sweet alert to add q/a?
@@ -28,6 +28,7 @@
 Full CRUD on some kind of data.
 Have a list view where you can see all of your data in some kind of listed
 format.  This may only show limited fields of the data.
+
 Be able to select an item from the list to be able to see a detail view.
 While in this view, the list goes away, and you see all of the detailed
 information about the item.
