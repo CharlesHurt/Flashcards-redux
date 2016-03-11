@@ -37,7 +37,7 @@
  <button ng-click='addCard()'>Add flashcard</button>
 </div>
 
-<ul style='position:absolute; top:400px'>
+<ul ng-hide='updateFlashcard' style='position:absolute; top:400px'>
   <li ng-repeat='flashcard in flashcards'>
     Q:{{flashcard.question}}
 
