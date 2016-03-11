@@ -18,15 +18,34 @@ flashcardApp.controller("flashcardController", function($scope, FlashcardService
   }
 
   $scope.flashcards = $scope.getCards()
-  
+
   $scope.addCard = function() {
 
-    $scope.newFlashcard.Question += "1"
-    $scope.newFlashcard.Answer += "1"
+    if ($scope.newFlashcard.question === '') {
+      // Set focus
+      return
+    }
+    if ($scope.newFlashcard.answer === '') {
+      // Set focus
+      return
+    }
 
     FlashcardService.create($scope.newFlashcard)
     .then(function(res) {
       $scope.flashcards.push(res.data)
+    }, function(err) {
+      console.log(err);
+    })
+
+
+  }
+
+  $scope.deleteCard = function(id) {
+    FlashcardService.remove(id)
+    .then(function(res) {
+      $scope.flashcards = $scope.flashcards.filter( function(cur) {
+        return cur.id !== id
+      })
     }, function(err) {
       console.log(err);
     })

@@ -20,7 +20,7 @@ flashcardApp.service("FlashcardService", function($http) { // a Singleton
     return $http.put("/flashcards/" + flashcard.id)
   }
 
-  this.remove = function(flashcard) {
-    return $http.delete("/flashcards/" + flashcard.id)
+  this.remove = function(id) {
+    return $http.delete("/flashcards/" + id)
   }
 })
