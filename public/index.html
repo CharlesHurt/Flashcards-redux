@@ -8,28 +8,39 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
   <script src="main.js"></script>
   <script src="controller.js"></script>
   <script src="services.js"></script>
 </head>
 <body ng-app='flashcardApp' ng-controller='flashcardController'>
   <div id="idPrevQuestion" class='cQuestion'>Previous question</div>
-  <div id="idNextQuestion" class='cQuestion' >Next question</div>
+  <div id="idNextQuestion" class='cQuestion'>Next question</div>
   <div id="idQuestions" class='cQuestionBlock'>This is a question</div>
   <div id="idAnswers" class='cAnswerBlock'>This is an answer</div>
   <img src="CardFront.jpg" alt="" class='cCard cFlashCard cCardFront'>
   <img src="CardBack.jpg" alt="" class='cCard cFlashCard cCardBack'>
 
-<div  style='position:absolute; top:300px'>
+  <div ng-show='updateFlashcard'  style='position:absolute; top:330px; border:1px solid gray; padding:5px'>
+    <h3>Update flashcard</h3>
+    <label for="">Question:</label><input type="text" ng-model='updateFlashcard.question' placeholder='question'>
+    <label for="">Answer:</label><input type="text" ng-model='updateFlashcard.answer' placeholder='question'>
+   <button ng-click='updateCard()'>Update flashcard</button>
+   <button ng-click='cancelUpdateCard()'>cancel Update</button>
+  </div>
+
+<div ng-hide='updateFlashcard' style='position:absolute; top:330px;; border:1px solid gray; padding:5px'>
   <h3>Add flashcard</h3>
   <label for="">Question:</label><input type="text" ng-model='newFlashcard.question' placeholder='question'>
   <label for="">Answer:</label><input type="text" ng-model='newFlashcard.answer' placeholder='question'>
  <button ng-click='addCard()'>Add flashcard</button>
 </div>
+
 <ul style='position:absolute; top:400px'>
   <li ng-repeat='flashcard in flashcards'>
     Q:{{flashcard.question}}
     <button ng-click='deleteCard(flashcard.id)'>Delete card</button>
+    <button ng-click='showUpdateCard(flashcard)'>Update card</button>
     <!-- -->
   </li>
 </ul>

@@ -5,8 +5,11 @@ var flashcardApp = angular.module("flashcardApp", [])
 flashcardApp.controller("flashcardController", function($scope, FlashcardService) {
 
   $scope.newFlashcard = {}
-  $scope.newFlashcard.question = "How do you"
-  $scope.newFlashcard.answer = "You abc"
+  $scope.newFlashcard.question
+  $scope.newFlashcard.answer
+
+  $scope.updateFlashcard = null
+
 
   $scope.getCards = function() {
     FlashcardService.fetch()
@@ -19,8 +22,18 @@ flashcardApp.controller("flashcardController", function($scope, FlashcardService
 
   $scope.flashcards = $scope.getCards()
 
-  $scope.addCard = function() {
+  $scope.cancelUpdateCard = function() {
+    $scope.updateFlashcard = null
+  }
 
+
+  $scope.updateCard = function() {
+    $scope.updateFlashcard = null
+    console.log('Wish driven delelopment is cool');
+  }
+
+  $scope.addCard = function() {
+    //console.log($scope.newFlashcard.question.length + ' is length');
     if ($scope.newFlashcard.question === '') {
       // Set focus
       return
@@ -33,11 +46,38 @@ flashcardApp.controller("flashcardController", function($scope, FlashcardService
     FlashcardService.create($scope.newFlashcard)
     .then(function(res) {
       $scope.flashcards.push(res.data)
+      $scope.newFlashcard = {}
     }, function(err) {
       console.log(err);
     })
+  }
 
+  $scope.showUpdateCard = function(flashcard) {
+    $scope.updateFlashcard = {}
+    $scope.updateFlashcard.question = flashcard.question
+    $scope.updateFlashcard.answer = flashcard.answer
 
+    swal({ "title": "<small>Update flashcard</small>!",
+    "text":
+    "<span style='color:#F8BB86'>Why?<span>",   "html": true });
+     return
+
+    if ($scope.updateFlashcard.question === '') {
+      // Set focus
+      return
+    }
+    if ($scope.updateFlashcard.answer === '') {
+      // Set focus
+      return
+    }
+
+    FlashcardService.update($scope.updateFlashcard)
+    .then(function(res) {
+      console.log('Enter updated card into flashcards here');
+      //$scope.flashcards.push(res.data)
+    }, function(err) {
+      console.log(err);
+    })
   }
 
   $scope.deleteCard = function(id) {

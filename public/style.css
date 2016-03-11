@@ -6,10 +6,14 @@ body {
   font-weight:bold;
 }
 
-li, td, label {
+li, td, label, div {
   letter-spacing:1px;
 }
 
+h3 {
+  
+  margin:5px;
+}
 .cCaveat {
   font-family: 'Caveat', cursive;
   font-size:1.3em;
