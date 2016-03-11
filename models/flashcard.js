@@ -25,7 +25,7 @@ exports.create = function(newflashcard, callback) {
     } else {
       newflashcard.id = uuid()
       flashcards.push(newflashcard)
-      this.write(flashcards, callback(newflashcard))
+      this.write(flashcards, callback(null, newflashcard))
     }
   })
 }

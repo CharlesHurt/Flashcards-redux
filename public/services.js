@@ -6,6 +6,7 @@ var flashcardApp = angular.module("flashcardApp")
 // Extend the app with FlashcardService
 // This service interacts with the backend for data
 flashcardApp.service("FlashcardService", function($http) { // a Singleton
+
   this.fetch = function() { // Returns the promise
     return $http.get('/flashcards')
   }

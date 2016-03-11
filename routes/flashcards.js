@@ -51,12 +51,12 @@ router.get('/flashcards/:id', function(req, res) {
 
 router.post('/flashcards', function(req, res) {
   var newFlashcard = req.body
-  Flashcard.create(newFlashcard, function(err) {
+  Flashcard.create(newFlashcard, function(err, newFlashcard) {
     if (err) {
       res.status(400)
       res.send(err)
     } else {
-      res.send()
+      res.send(newFlashcard)
     }
   })
 })

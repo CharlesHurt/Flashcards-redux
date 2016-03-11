@@ -10,15 +10,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="main.js"></script>
   <script src="controller.js"></script>
+  <script src="services.js"></script>
 </head>
 <body ng-app='flashcardApp' ng-controller='flashcardController'>
   <div id="idPrevQuestion" class='cQuestion'>Previous question</div>
-  <div id="idNextQuestion" class='cQuestion'>Next question</div>
+  <div id="idNextQuestion" class='cQuestion'  ng-click='addCard()'>Next question</div>
   <div id="idQuestions" class='cQuestionBlock'>This is a question</div>
   <div id="idAnswers" class='cAnswerBlock'>This is an answer</div>
   <img src="CardFront.jpg" alt="" class='cCard cFlashCard cCardFront'>
   <img src="CardBack.jpg" alt="" class='cCard cFlashCard cCardBack'>
 
+<ul style='position:absolute; top:400px'>
+  <li ng-repeat='flashcard in flashcards'>
+    Q:{{flashcard.question}} A:{{flashcard.answer}}
+  </li>
+</ul>
 <div ng-hide='true'>
   List of questions on the left
   Need a hint sweetalert Using autoclose timer
@@ -46,6 +52,15 @@ features.  Be creative!
 Submission:
 Commit and push to Github, and deploy to Heroku.  Then enter those into the
 standard submission form.
+
+Sample
+[
+{"question":"How do you12","answer":"You abc12","id":"7b88aeee-ac94-4d81-84db-d05050f24b0b"},
+{"question":"How do you13","answer":"You abc13","id":"dd00b613-0283-4fd0-a260-73105585b736"},
+{"question":"How do you14","answer":"You abc14","id":"872ee946-9c7c-40cc-a2a3-c89b5665a4c2"},
+{"question":"How do you15","answer":"You abc15","id":"668b04cb-8a70-4d7a-9228-200a5acae9e9"},
+{"question":"How do you16","answer":"You abc16","id":"384e3e4c-3389-4f74-96b2-b32b23e447cd"}]
+
 </div>
 </body>
 </html>

@@ -2,7 +2,36 @@
 
 var flashcardApp = angular.module("flashcardApp", [])
 
-flashcardApp.controller("flashcardController", function($scope) {
+flashcardApp.controller("flashcardController", function($scope, FlashcardService) {
+
+  $scope.newFlashcard = {}
+  $scope.newFlashcard.question = "How do you"
+  $scope.newFlashcard.answer = "You abc"
+
+  $scope.getCards = function() {
+    FlashcardService.fetch()
+    .then(function(res) {
+      $scope.flashcards = res.data
+    }, function(err) {
+      console.log(err);
+    })
+  }
+
+  $scope.flashcards = $scope.getCards()
+  
+  $scope.addCard = function() {
+
+    $scope.newFlashcard.Question += "1"
+    $scope.newFlashcard.Answer += "1"
+
+    FlashcardService.create($scope.newFlashcard)
+    .then(function(res) {
+      $scope.flashcards.push(res.data)
+    }, function(err) {
+      console.log(err);
+    })
+  }
+
   $scope.initData = [
     {"Q" : "EMMET: Numbering?", "A": "# or is it $?"},
     {"Q" : "MAC: Three finger salute?", "A" : "Option Cmd Esc"},
