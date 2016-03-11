@@ -3,8 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Flash cards</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+  <linkx rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <scriptx src="main.js"></script>
+  <script src="controller.js"></script>
 </head>
-<body>
-asdfadsfa
+<body ng-app='flashcardApp' ng-controller='flashcardController'> {{hello}} is
+<div >ng-hide='true'
+  List of questions on the left
+  Need a hint sweetalert Using autoclose timer
+  Sweet alert to add q/a?
+
+  MVP:
+Full CRUD on some kind of data.
+Have a list view where you can see all of your data in some kind of listed
+format.  This may only show limited fields of the data.
+Be able to select an item from the list to be able to see a detail view.
+While in this view, the list goes away, and you see all of the detailed
+information about the item.
+The updating and deleting functions must be accessed through the detail view.
+You must have confirmation on updating and deleting.  You must somehow implement
+Sweet Alert.  (also check out ngSweetAlert for an easy way to trigger these
+alerts in Angular.)
+Your data must have an image component.  (your users can add an image url to
+the new item, and that url can be put into an image tag using ng-src)
+Extra Features:
+Search filtering, and sorting with orderBy.
+Investigate Angular UI-Router to organize and configure your different views.
+Depending on what your data is, you can have all kinds of different extra
+features.  Be creative!
+Submission:
+Commit and push to Github, and deploy to Heroku.  Then enter those into the
+standard submission form.
+</div>
 </body>
 </html>
