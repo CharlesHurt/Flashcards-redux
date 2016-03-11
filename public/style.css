@@ -1,8 +1,102 @@
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align:center;
+  font-family: 'Shadows Into Light Two', cursive;
+  font-size:14px;
+  font-weight:bold;
 }
 
-a {
-  color: #00B7FF;
+.cCaveat {
+  font-family: 'Caveat', cursive;
+  font-size:1.3em;
+}
+
+.cQ, .cA {
+  border:1px solid gray;
+}
+
+.cQ {
+  text-align:left;
+  background-color:black;
+  color:black;
+  border-right:2px solid gray;
+  display:inline-block;
+}
+
+.cA {
+  background-color:black;
+  text-align:right;
+  color:black;
+  display:inline-block;
+}
+
+.cBackgroundWhite {
+  background-color:white;
+}
+
+.cFlashCard {
+  top:20px;
+  position:absolute;
+  z-index:10;
+  margin:5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cCardFront {
+  left:20px;
+}
+
+.cCardBack {
+  left:560px;
+}
+
+.cQuestion {
+  letter-spacing:1px;
+  top:270px;
+  position:absolute;
+  z-index:20;
+  margin:5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#idPrevQuestion {
+   left:30px;
+}
+
+#idNextQuestion {
+   left:405px;
+}
+
+#idQuestions {
+  color:#555;
+  text-align:left;
+  letter-spacing:1px;
+  line-height:24px;
+  position:absolute;
+  left:30px;
+  top:28px;
+  z-index:20;
+  background-color:rgba(0,0,0,0);
+  border: 0px solid white;
+  word-wrap:normal;
+  white-space:normal;
+  width:460px;
+  max-width:460;
+}
+
+#idAnswers {
+  color:#555;
+  text-align:left;
+  letter-spacing:1px;
+  line-height:24px;
+  position:absolute;
+  left:590px;
+  top:28px;
+  z-index:20;
+  background-color:rgba(0,0,0,0);
+  border: 0px solid white;
+  word-wrap:normal;
+  white-space:normal;
+  width:460px;
+  max-width:460;
 }
