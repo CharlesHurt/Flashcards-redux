@@ -27,6 +27,7 @@
     <label for="">Answer:</label><input type="text" ng-model='updateFlashcard.answer' placeholder='question'>
    <button ng-click='updateCard()'>Update flashcard</button>
    <button ng-click='cancelUpdateCard()'>cancel Update</button>
+   <button ng-click='deleteCard(updateFlashcard.id)'>Delete card</button>
   </div>
 
 <div ng-hide='updateFlashcard' style='position:absolute; top:330px;; border:1px solid gray; padding:5px'>
@@ -39,7 +40,7 @@
 <ul style='position:absolute; top:400px'>
   <li ng-repeat='flashcard in flashcards'>
     Q:{{flashcard.question}}
-    <button ng-click='deleteCard(flashcard.id)'>Delete card</button>
+
     <button ng-click='showUpdateCard(flashcard)'>Update card</button>
     <!-- -->
   </li>

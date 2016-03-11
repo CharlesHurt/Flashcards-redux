@@ -56,10 +56,9 @@ flashcardApp.controller("flashcardController", function($scope, FlashcardService
     $scope.updateFlashcard = {}
     $scope.updateFlashcard.question = flashcard.question
     $scope.updateFlashcard.answer = flashcard.answer
+    $scope.updateFlashcard.id = flashcard.id
 
-    swal({ "title": "<small>Update flashcard</small>!",
-    "text":
-    "<span style='color:#F8BB86'>Why?<span>",   "html": true });
+
      return
 
     if ($scope.updateFlashcard.question === '') {
@@ -81,11 +80,15 @@ flashcardApp.controller("flashcardController", function($scope, FlashcardService
   }
 
   $scope.deleteCard = function(id) {
+    swal({ "title": "<small>NOTICE</small>!",
+    "text":
+    "<span style='color:#F8BB86'>This card is permanently deleted!<span>",   "html": true });
     FlashcardService.remove(id)
     .then(function(res) {
       $scope.flashcards = $scope.flashcards.filter( function(cur) {
         return cur.id !== id
       })
+      $scope.updateFlashcard = null
     }, function(err) {
       console.log(err);
     })
